@@ -4,6 +4,7 @@
 
 #include "Arduino.h"
 #include <Adafruit_BME280.h>
+#include <Adafruit_Sensor.h>
 
 class BME
 {
@@ -13,7 +14,8 @@ class BME
 		float GetPressure();
 		float GetHumidity();
 		float GetTemperature();
-
+		String GetString();
+		String GetHeader();
 	private:
 		Adafruit_BME280 Sensor;
 		uint8_t ADR = 0x77; //Default global sensor address 

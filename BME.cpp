@@ -1,13 +1,16 @@
+// #include <Adafruit_BME280.h>
+#include "BME.h"
 #include <Adafruit_BME280.h>
+#include <Adafruit_Sensor.h>
 
 BME::BME()
 {
 }
 
-uint8_t BMP::begin(uint8_t ADR_)
+uint8_t BME::begin(uint8_t ADR_)
 {
 	ADR = ADR_;
-	bmp.begin(ADR, 0x58);
+	Sensor.begin(ADR);
 }
 
 float BME::GetPressure() //Get pressure in mBar 
@@ -17,7 +20,7 @@ float BME::GetPressure() //Get pressure in mBar
 
 float BME::GetHumidity()  //Return humidity in % (realtive)
 {
-	return Sensor.readHumidity()
+	return Sensor.readHumidity();
 }
 
 float BME::GetTemperature()  //Return temp in C
